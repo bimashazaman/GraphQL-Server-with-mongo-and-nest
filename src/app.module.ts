@@ -6,8 +6,11 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
+import { MongooseModule } from '@nestjs/mongoose';
+
 @Module({
   imports: [
+    MongooseModule.forRoot('mongodb://localhost/nest'),
     CatsModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
